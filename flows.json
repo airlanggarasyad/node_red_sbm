@@ -335,149 +335,6 @@
         "className": ""
     },
     {
-        "id": "eb6eb33ee2e9041c",
-        "type": "ui_switch",
-        "z": "8a6f973a0405606c",
-        "name": "",
-        "label": "Lampu",
-        "tooltip": "",
-        "group": "395dba892ff1f493",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 150,
-        "y": 180,
-        "wires": [
-            [
-                "5d3f9dde9eca2cd6"
-            ]
-        ]
-    },
-    {
-        "id": "ac3ca723bb234424",
-        "type": "ui_switch",
-        "z": "8a6f973a0405606c",
-        "name": "",
-        "label": "Lampu",
-        "tooltip": "",
-        "group": "54a9b6d5515b786f",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 150,
-        "y": 280,
-        "wires": [
-            [
-                "3a6e5a58fd5ed2ca"
-            ]
-        ]
-    },
-    {
-        "id": "5d3f9dde9eca2cd6",
-        "type": "mqtt out",
-        "z": "8a6f973a0405606c",
-        "name": "",
-        "topic": "smartSwitch/meja1/lampu",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "a9fcf269908e18c4",
-        "x": 460,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "3a6e5a58fd5ed2ca",
-        "type": "mqtt out",
-        "z": "8a6f973a0405606c",
-        "name": "",
-        "topic": "smartSwitch/meja2/lampu",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "a9fcf269908e18c4",
-        "x": 460,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "6cea39dda5639316",
-        "type": "aedes broker",
-        "z": "c689d7b3b0303d20",
-        "name": "",
-        "mqtt_port": 1883,
-        "mqtt_ws_bind": "port",
-        "mqtt_ws_port": null,
-        "mqtt_ws_path": "",
-        "cert": "",
-        "key": "",
-        "certname": "",
-        "keyname": "",
-        "dburl": "",
-        "usetls": false,
-        "x": 150,
-        "y": 80,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "443d3fba2e865488",
-        "type": "ui_text",
-        "z": "c689d7b3b0303d20",
-        "group": "9fe8e0e27e235c69",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Pilot Lamp",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 450,
-        "y": 180,
-        "wires": []
-    },
-    {
         "id": "0cbc1ac81e9e1b2a",
         "type": "mqtt in",
         "z": "c689d7b3b0303d20",
@@ -493,26 +350,9 @@
         "y": 180,
         "wires": [
             [
-                "443d3fba2e865488"
+                "4076a7f140e98fe9"
             ]
         ]
-    },
-    {
-        "id": "a8980165d09e7038",
-        "type": "ui_text",
-        "z": "c689d7b3b0303d20",
-        "group": "0feb675b408554d0",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Pilot Lamp",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 450,
-        "y": 420,
-        "wires": []
     },
     {
         "id": "688140ea053af7ac",
@@ -530,103 +370,9 @@
         "y": 420,
         "wires": [
             [
-                "a8980165d09e7038"
+                "44d3d3564d26d36c"
             ]
         ]
-    },
-    {
-        "id": "ff205d2cc6e89576",
-        "type": "ui_gauge",
-        "z": "8a6f973a0405606c",
-        "name": "",
-        "group": "395dba892ff1f493",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Battery",
-        "label": "percent",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#ff3b30",
-            "#ffcc00",
-            "#34c759"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 520,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "cfdf6a9ce7f10514",
-        "type": "mqtt in",
-        "z": "8a6f973a0405606c",
-        "name": "",
-        "topic": "smartSwtich/meja1/battery",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "a9fcf269908e18c4",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "x": 210,
-        "y": 360,
-        "wires": [
-            [
-                "ff205d2cc6e89576"
-            ]
-        ]
-    },
-    {
-        "id": "9ca78d0379ab3de6",
-        "type": "mqtt in",
-        "z": "8a6f973a0405606c",
-        "name": "",
-        "topic": "smartSwtich/meja2/battery",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "a9fcf269908e18c4",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "x": 210,
-        "y": 420,
-        "wires": [
-            [
-                "4aa14f3825e4655c"
-            ]
-        ]
-    },
-    {
-        "id": "4aa14f3825e4655c",
-        "type": "ui_gauge",
-        "z": "8a6f973a0405606c",
-        "name": "",
-        "group": "54a9b6d5515b786f",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Battery",
-        "label": "percent",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#ff3b30",
-            "#ffcc00",
-            "#34c759"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 520,
-        "y": 420,
-        "wires": []
     },
     {
         "id": "b439bcc1cc9d0fac",
@@ -636,7 +382,7 @@
         "label": "Lamp 1",
         "tooltip": "",
         "group": "9fe8e0e27e235c69",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -746,7 +492,7 @@
         "label": "Lamp 1",
         "tooltip": "",
         "group": "0feb675b408554d0",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -847,5 +593,241 @@
                 "13cfd93e006963a3"
             ]
         ]
+    },
+    {
+        "id": "4076a7f140e98fe9",
+        "type": "ui_led",
+        "z": "c689d7b3b0303d20",
+        "order": 1,
+        "group": "9fe8e0e27e235c69",
+        "width": 0,
+        "height": 0,
+        "label": "Pilot Lamp",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#34c759",
+                "value": "ON",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 430,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "44d3d3564d26d36c",
+        "type": "ui_led",
+        "z": "c689d7b3b0303d20",
+        "order": 1,
+        "group": "0feb675b408554d0",
+        "width": 0,
+        "height": 0,
+        "label": "Pilot Lamp",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#34c759",
+                "value": "ON",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 430,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "8ddf471a29b74ad9",
+        "type": "aedes broker",
+        "z": "c689d7b3b0303d20",
+        "name": "",
+        "mqtt_port": 1883,
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": null,
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "certname": "",
+        "keyname": "",
+        "dburl": "",
+        "usetls": false,
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4849eafec42be18c",
+        "type": "mqtt in",
+        "z": "8a6f973a0405606c",
+        "name": "",
+        "topic": "smartSwitch/meja1/battery",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "a9fcf269908e18c4",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "aca164097d947e7d"
+            ]
+        ]
+    },
+    {
+        "id": "aca164097d947e7d",
+        "type": "function",
+        "z": "8a6f973a0405606c",
+        "name": "",
+        "func": "msg.payload = parseInt(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 120,
+        "wires": [
+            [
+                "70b7c5137fce4b41"
+            ]
+        ]
+    },
+    {
+        "id": "70b7c5137fce4b41",
+        "type": "ui_level",
+        "z": "8a6f973a0405606c",
+        "group": "395dba892ff1f493",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "name": "Battery",
+        "label": "Battery",
+        "colorHi": "#34c759",
+        "colorWarn": "#ff9500",
+        "colorNormal": "#ff3b30",
+        "colorOff": "#595959",
+        "min": 0,
+        "max": 100,
+        "segWarn": "33",
+        "segHigh": "66",
+        "unit": "%",
+        "layout": "sh",
+        "channelA": "",
+        "channelB": "",
+        "decimals": 0,
+        "animations": "soft",
+        "shape": "3",
+        "colorschema": "valuedriven",
+        "textoptions": "default",
+        "colorText": "#eeeeee",
+        "fontLabel": "",
+        "fontValue": "",
+        "fontSmall": "",
+        "colorFromTheme": true,
+        "textAnimations": false,
+        "hideValue": false,
+        "tickmode": "off",
+        "peakmode": false,
+        "property": "payload",
+        "peaktime": 3000,
+        "x": 610,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b08a96ce5fe43c8e",
+        "type": "mqtt in",
+        "z": "8a6f973a0405606c",
+        "name": "",
+        "topic": "smartSwitch/meja2/battery",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "a9fcf269908e18c4",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 170,
+        "y": 220,
+        "wires": [
+            [
+                "2d6ba1ddfed6c763"
+            ]
+        ]
+    },
+    {
+        "id": "2d6ba1ddfed6c763",
+        "type": "function",
+        "z": "8a6f973a0405606c",
+        "name": "",
+        "func": "msg.payload = parseInt(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 220,
+        "wires": [
+            [
+                "e779d9179e4b1f73"
+            ]
+        ]
+    },
+    {
+        "id": "e779d9179e4b1f73",
+        "type": "ui_level",
+        "z": "8a6f973a0405606c",
+        "group": "54a9b6d5515b786f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "Battery",
+        "label": "Battery",
+        "colorHi": "#34c759",
+        "colorWarn": "#ff9500",
+        "colorNormal": "#ff3b30",
+        "colorOff": "#595959",
+        "min": 0,
+        "max": 100,
+        "segWarn": "33",
+        "segHigh": "66",
+        "unit": "%",
+        "layout": "sh",
+        "channelA": "",
+        "channelB": "",
+        "decimals": 0,
+        "animations": "soft",
+        "shape": "3",
+        "colorschema": "valuedriven",
+        "textoptions": "default",
+        "colorText": "#eeeeee",
+        "fontLabel": "",
+        "fontValue": "",
+        "fontSmall": "",
+        "colorFromTheme": true,
+        "textAnimations": false,
+        "hideValue": false,
+        "tickmode": "off",
+        "peakmode": false,
+        "property": "payload",
+        "peaktime": 3000,
+        "x": 610,
+        "y": 220,
+        "wires": []
     }
 ]

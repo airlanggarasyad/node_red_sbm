@@ -1,0 +1,562 @@
+[
+    {
+        "id": "c689d7b3b0303d20",
+        "type": "tab",
+        "label": "smartContactor",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8a6f973a0405606c",
+        "type": "tab",
+        "label": "smartSwtich",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "48a7a3f81ddc0a1f",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#696969",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#696969",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#696969",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#8f8f8f",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#696969",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Final Project SBM",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "none",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "5572d627a82c04ed",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "fbebd3b571537413",
+        "type": "serial-port",
+        "serialport": "/dev/tty.wchusbserial52870190571",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "f2871ec28540f643",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ed50aa62c82ca536",
+        "type": "ui_group",
+        "name": "LED Control",
+        "tab": "",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a9fcf269908e18c4",
+        "type": "mqtt-broker",
+        "name": "Local",
+        "broker": "192.168.1.52",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "8860a420f982a857",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "31317b5fede43b97",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f571d83328dc91f1",
+        "type": "ui_group",
+        "name": "LED Control",
+        "tab": "",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "452bdb6f11da4bfa",
+        "type": "ui_group",
+        "name": "Group 4",
+        "tab": "",
+        "order": 4,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "5037c985634f78ca",
+        "type": "ui_group",
+        "name": "randNumber",
+        "tab": "",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "532044992d4ab9ee",
+        "type": "ui_group",
+        "name": "saw",
+        "tab": "",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "78ba92b914e547ad",
+        "type": "ui_group",
+        "name": "Status",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1c3eec0eae709859",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "",
+        "order": 2,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "877045c7e64afbcc",
+        "type": "ui_tab",
+        "name": "Smart Switch",
+        "icon": "dashboard",
+        "order": 6,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "395dba892ff1f493",
+        "type": "ui_group",
+        "name": "Meja 1",
+        "tab": "877045c7e64afbcc",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "54a9b6d5515b786f",
+        "type": "ui_group",
+        "name": "Meja 2",
+        "tab": "877045c7e64afbcc",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bc4dfc80b877fa82",
+        "type": "ui_tab",
+        "name": "Smart Contactor",
+        "icon": "dashboard",
+        "order": 5,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "9fe8e0e27e235c69",
+        "type": "ui_group",
+        "name": "Meja 1",
+        "tab": "bc4dfc80b877fa82",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0feb675b408554d0",
+        "type": "ui_group",
+        "name": "Meja 2",
+        "tab": "bc4dfc80b877fa82",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ea8f8ebab2bb0365",
+        "type": "aedes broker",
+        "z": "8a6f973a0405606c",
+        "name": "",
+        "mqtt_port": 1883,
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": "",
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "certname": "",
+        "keyname": "",
+        "dburl": "",
+        "usetls": false,
+        "x": 190,
+        "y": 60,
+        "wires": [
+            [],
+            [
+                "5d3f9dde9eca2cd6",
+                "3a6e5a58fd5ed2ca"
+            ]
+        ]
+    },
+    {
+        "id": "eb6eb33ee2e9041c",
+        "type": "ui_switch",
+        "z": "8a6f973a0405606c",
+        "name": "",
+        "label": "Lampu",
+        "tooltip": "",
+        "group": "395dba892ff1f493",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "5d3f9dde9eca2cd6"
+            ]
+        ]
+    },
+    {
+        "id": "ac3ca723bb234424",
+        "type": "ui_switch",
+        "z": "8a6f973a0405606c",
+        "name": "",
+        "label": "Lampu",
+        "tooltip": "",
+        "group": "54a9b6d5515b786f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "3a6e5a58fd5ed2ca"
+            ]
+        ]
+    },
+    {
+        "id": "5d3f9dde9eca2cd6",
+        "type": "mqtt out",
+        "z": "8a6f973a0405606c",
+        "name": "",
+        "topic": "smartSwitch/meja1/lampu",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a9fcf269908e18c4",
+        "x": 460,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "3a6e5a58fd5ed2ca",
+        "type": "mqtt out",
+        "z": "8a6f973a0405606c",
+        "name": "",
+        "topic": "smartSwitch/meja2/lampu",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a9fcf269908e18c4",
+        "x": 460,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6cea39dda5639316",
+        "type": "aedes broker",
+        "z": "c689d7b3b0303d20",
+        "name": "",
+        "mqtt_port": 1883,
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": null,
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "certname": "",
+        "keyname": "",
+        "dburl": "",
+        "usetls": false,
+        "x": 150,
+        "y": 80,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "443d3fba2e865488",
+        "type": "ui_text",
+        "z": "c689d7b3b0303d20",
+        "group": "9fe8e0e27e235c69",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Pilot Lamp",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 450,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "0cbc1ac81e9e1b2a",
+        "type": "mqtt in",
+        "z": "c689d7b3b0303d20",
+        "name": "",
+        "topic": "smartContactor/meja1/status",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "a9fcf269908e18c4",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "443d3fba2e865488"
+            ]
+        ]
+    },
+    {
+        "id": "a8980165d09e7038",
+        "type": "ui_text",
+        "z": "c689d7b3b0303d20",
+        "group": "0feb675b408554d0",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Pilot Lamp",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 450,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "688140ea053af7ac",
+        "type": "mqtt in",
+        "z": "c689d7b3b0303d20",
+        "name": "",
+        "topic": "smartContactor/meja2/status",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "a9fcf269908e18c4",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 180,
+        "y": 320,
+        "wires": [
+            [
+                "a8980165d09e7038"
+            ]
+        ]
+    }
+]

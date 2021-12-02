@@ -350,7 +350,7 @@
         "dburl": "",
         "usetls": false,
         "x": 190,
-        "y": 60,
+        "y": 80,
         "wires": [
             [],
             [
@@ -558,5 +558,99 @@
                 "a8980165d09e7038"
             ]
         ]
+    },
+    {
+        "id": "ff205d2cc6e89576",
+        "type": "ui_gauge",
+        "z": "8a6f973a0405606c",
+        "name": "",
+        "group": "395dba892ff1f493",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Battery",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ff3b30",
+            "#ffcc00",
+            "#34c759"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 520,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "cfdf6a9ce7f10514",
+        "type": "mqtt in",
+        "z": "8a6f973a0405606c",
+        "name": "",
+        "topic": "smartSwtich/meja1/battery",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "a9fcf269908e18c4",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 210,
+        "y": 360,
+        "wires": [
+            [
+                "ff205d2cc6e89576"
+            ]
+        ]
+    },
+    {
+        "id": "9ca78d0379ab3de6",
+        "type": "mqtt in",
+        "z": "8a6f973a0405606c",
+        "name": "",
+        "topic": "smartSwtich/meja2/battery",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "a9fcf269908e18c4",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 210,
+        "y": 420,
+        "wires": [
+            [
+                "4aa14f3825e4655c"
+            ]
+        ]
+    },
+    {
+        "id": "4aa14f3825e4655c",
+        "type": "ui_gauge",
+        "z": "8a6f973a0405606c",
+        "name": "",
+        "group": "54a9b6d5515b786f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Battery",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ff3b30",
+            "#ffcc00",
+            "#34c759"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 520,
+        "y": 420,
+        "wires": []
     }
 ]

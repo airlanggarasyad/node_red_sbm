@@ -17,7 +17,7 @@
         "id": "48a7a3f81ddc0a1f",
         "type": "ui_base",
         "theme": {
-            "name": "theme-dark",
+            "name": "theme-custom",
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
@@ -35,18 +35,19 @@
             "customTheme": {
                 "name": "Untitled Theme 1",
                 "default": "#4B7930",
-                "baseColor": "#4B7930",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                "baseColor": "#d73333",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
             },
             "themeState": {
                 "base-color": {
-                    "default": "#097479",
-                    "value": "#696969",
+                    "default": "#4B7930",
+                    "value": "#d73333",
                     "edited": true
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#696969",
-                    "edited": false
+                    "value": "#2b2b2b",
+                    "edited": true
                 },
                 "page-backgroundColor": {
                     "value": "#111111",
@@ -57,8 +58,8 @@
                     "edited": false
                 },
                 "group-textColor": {
-                    "value": "#8f8f8f",
-                    "edited": false
+                    "value": "#ffffff",
+                    "edited": true
                 },
                 "group-borderColor": {
                     "value": "#555555",
@@ -73,8 +74,8 @@
                     "edited": false
                 },
                 "widget-backgroundColor": {
-                    "value": "#696969",
-                    "edited": false
+                    "value": "#30d163",
+                    "edited": true
                 },
                 "widget-borderColor": {
                     "value": "#333333",
@@ -93,11 +94,11 @@
             }
         },
         "site": {
-            "name": "Final Project SBM",
+            "name": "SBM Final Project: Smart Contactor",
             "hideToolbar": "false",
             "allowSwipe": "false",
             "lockMenu": "false",
-            "allowTempTheme": "none",
+            "allowTempTheme": "true",
             "dateFormat": "DD/MM/YYYY",
             "sizes": {
                 "sx": 48,
@@ -167,7 +168,7 @@
         "id": "a9fcf269908e18c4",
         "type": "mqtt-broker",
         "name": "Local",
-        "broker": "192.168.1.52",
+        "broker": "192.168.0.106",
         "port": "1883",
         "clientid": "",
         "usetls": false,
@@ -315,7 +316,7 @@
     {
         "id": "9fe8e0e27e235c69",
         "type": "ui_group",
-        "name": "Meja 1",
+        "name": "Desk 1",
         "tab": "bc4dfc80b877fa82",
         "order": 1,
         "disp": true,
@@ -326,7 +327,7 @@
     {
         "id": "0feb675b408554d0",
         "type": "ui_group",
-        "name": "Meja 2",
+        "name": "Desk 2",
         "tab": "bc4dfc80b877fa82",
         "order": 2,
         "disp": true,
@@ -339,15 +340,15 @@
         "type": "mqtt in",
         "z": "c689d7b3b0303d20",
         "name": "",
-        "topic": "smartContactor/meja1/status",
+        "topic": "smartContactor/desk1/status",
         "qos": "2",
         "datatype": "auto",
         "broker": "a9fcf269908e18c4",
         "nl": false,
         "rap": true,
         "rh": 0,
-        "x": 180,
-        "y": 180,
+        "x": 160,
+        "y": 140,
         "wires": [
             [
                 "4076a7f140e98fe9"
@@ -359,15 +360,15 @@
         "type": "mqtt in",
         "z": "c689d7b3b0303d20",
         "name": "",
-        "topic": "smartContactor/meja2/status",
+        "topic": "smartContactor/desk2/status",
         "qos": "2",
         "datatype": "auto",
         "broker": "a9fcf269908e18c4",
         "nl": false,
         "rap": true,
         "rh": 0,
-        "x": 180,
-        "y": 420,
+        "x": 160,
+        "y": 480,
         "wires": [
             [
                 "44d3d3564d26d36c"
@@ -379,7 +380,7 @@
         "type": "ui_switch",
         "z": "c689d7b3b0303d20",
         "name": "",
-        "label": "Lamp 1",
+        "label": "Contactor 1",
         "tooltip": "",
         "group": "9fe8e0e27e235c69",
         "order": 2,
@@ -400,8 +401,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 520,
-        "y": 240,
+        "x": 510,
+        "y": 200,
         "wires": [
             [
                 "659d5c0984988132"
@@ -413,14 +414,14 @@
         "type": "function",
         "z": "c689d7b3b0303d20",
         "name": "",
-        "func": "if (msg.payload === \"ON\") {\n    msg.payload = true\n} else {\n    msg.payload = false\n}\n\nreturn msg;",
+        "func": "if (msg.payload === \"ON\") {\n    msg.payload = true\n    msg.colour = \"#34bd64\"\n} else {\n    msg.payload = false\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 300,
+        "x": 360,
+        "y": 260,
         "wires": [
             [
                 "b439bcc1cc9d0fac"
@@ -432,15 +433,15 @@
         "type": "mqtt in",
         "z": "c689d7b3b0303d20",
         "name": "",
-        "topic": "smartContactor/meja1/lamp1",
+        "topic": "smartContactor/desk1/lamp1",
         "qos": "2",
         "datatype": "auto",
         "broker": "a9fcf269908e18c4",
         "nl": false,
         "rap": true,
         "rh": 0,
-        "x": 180,
-        "y": 240,
+        "x": 160,
+        "y": 200,
         "wires": [
             [
                 "4fcbd9a0c0e18795"
@@ -452,7 +453,7 @@
         "type": "mqtt out",
         "z": "c689d7b3b0303d20",
         "name": "",
-        "topic": "smartContactor/meja1/lamp1",
+        "topic": "smartContactor/desk1/lamp1",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -462,7 +463,7 @@
         "expiry": "",
         "broker": "a9fcf269908e18c4",
         "x": 870,
-        "y": 240,
+        "y": 200,
         "wires": []
     },
     {
@@ -477,7 +478,7 @@
         "finalize": "",
         "libs": [],
         "x": 660,
-        "y": 300,
+        "y": 260,
         "wires": [
             [
                 "5bceca5e0683d77c"
@@ -489,7 +490,7 @@
         "type": "ui_switch",
         "z": "c689d7b3b0303d20",
         "name": "",
-        "label": "Lamp 1",
+        "label": "Contactor 1",
         "tooltip": "",
         "group": "0feb675b408554d0",
         "order": 2,
@@ -510,8 +511,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 520,
-        "y": 480,
+        "x": 510,
+        "y": 540,
         "wires": [
             [
                 "07466b511093de94"
@@ -529,8 +530,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 540,
+        "x": 360,
+        "y": 600,
         "wires": [
             [
                 "128e46de8a3fe990"
@@ -542,15 +543,15 @@
         "type": "mqtt in",
         "z": "c689d7b3b0303d20",
         "name": "",
-        "topic": "smartContactor/meja2/lamp1",
+        "topic": "smartContactor/desk2/lamp1",
         "qos": "2",
         "datatype": "auto",
         "broker": "a9fcf269908e18c4",
         "nl": false,
         "rap": true,
         "rh": 0,
-        "x": 180,
-        "y": 480,
+        "x": 160,
+        "y": 540,
         "wires": [
             [
                 "44cf135bb601fbe0"
@@ -562,7 +563,7 @@
         "type": "mqtt out",
         "z": "c689d7b3b0303d20",
         "name": "",
-        "topic": "smartContactor/meja2/lamp1",
+        "topic": "smartContactor/desk2/lamp1",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -572,7 +573,7 @@
         "expiry": "",
         "broker": "a9fcf269908e18c4",
         "x": 870,
-        "y": 480,
+        "y": 540,
         "wires": []
     },
     {
@@ -587,7 +588,7 @@
         "finalize": "",
         "libs": [],
         "x": 660,
-        "y": 540,
+        "y": 600,
         "wires": [
             [
                 "13cfd93e006963a3"
@@ -602,7 +603,7 @@
         "group": "9fe8e0e27e235c69",
         "width": 0,
         "height": 0,
-        "label": "Pilot Lamp",
+        "label": "Status",
         "labelPlacement": "left",
         "labelAlignment": "left",
         "colorForValue": [
@@ -610,14 +611,19 @@
                 "color": "#34c759",
                 "value": "ON",
                 "valueType": "str"
+            },
+            {
+                "color": "#ff453a",
+                "value": "OFF",
+                "valueType": "str"
             }
         ],
         "allowColorForValueInMessage": false,
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 430,
-        "y": 180,
+        "x": 410,
+        "y": 140,
         "wires": []
     },
     {
@@ -628,7 +634,7 @@
         "group": "0feb675b408554d0",
         "width": 0,
         "height": 0,
-        "label": "Pilot Lamp",
+        "label": "Status",
         "labelPlacement": "left",
         "labelAlignment": "left",
         "colorForValue": [
@@ -636,14 +642,19 @@
                 "color": "#34c759",
                 "value": "ON",
                 "valueType": "str"
+            },
+            {
+                "color": "#ff453a",
+                "value": "OFF",
+                "valueType": "str"
             }
         ],
         "allowColorForValueInMessage": false,
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 430,
-        "y": 420,
+        "x": 410,
+        "y": 480,
         "wires": []
     },
     {
@@ -653,7 +664,7 @@
         "name": "",
         "mqtt_port": 1883,
         "mqtt_ws_bind": "port",
-        "mqtt_ws_port": null,
+        "mqtt_ws_port": "",
         "mqtt_ws_path": "",
         "cert": "",
         "key": "",
@@ -661,8 +672,8 @@
         "keyname": "",
         "dburl": "",
         "usetls": false,
-        "x": 150,
-        "y": 100,
+        "x": 130,
+        "y": 60,
         "wires": [
             [],
             []

@@ -168,7 +168,7 @@
         "id": "a9fcf269908e18c4",
         "type": "mqtt-broker",
         "name": "Local",
-        "broker": "192.168.0.106",
+        "broker": "broker.hivemq.com",
         "port": "1883",
         "clientid": "",
         "usetls": false,
@@ -368,7 +368,7 @@
         "rap": true,
         "rh": 0,
         "x": 160,
-        "y": 480,
+        "y": 360,
         "wires": [
             [
                 "44d3d3564d26d36c"
@@ -512,7 +512,7 @@
         "animate": false,
         "className": "",
         "x": 510,
-        "y": 540,
+        "y": 420,
         "wires": [
             [
                 "07466b511093de94"
@@ -531,7 +531,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 600,
+        "y": 480,
         "wires": [
             [
                 "128e46de8a3fe990"
@@ -551,7 +551,7 @@
         "rap": true,
         "rh": 0,
         "x": 160,
-        "y": 540,
+        "y": 420,
         "wires": [
             [
                 "44cf135bb601fbe0"
@@ -573,7 +573,7 @@
         "expiry": "",
         "broker": "a9fcf269908e18c4",
         "x": 870,
-        "y": 540,
+        "y": 420,
         "wires": []
     },
     {
@@ -588,7 +588,7 @@
         "finalize": "",
         "libs": [],
         "x": 660,
-        "y": 600,
+        "y": 480,
         "wires": [
             [
                 "13cfd93e006963a3"
@@ -647,6 +647,11 @@
                 "color": "#ff453a",
                 "value": "OFF",
                 "valueType": "str"
+            },
+            {
+                "color": "#ff453a",
+                "value": "null",
+                "valueType": "str"
             }
         ],
         "allowColorForValueInMessage": false,
@@ -654,7 +659,7 @@
         "showGlow": true,
         "name": "",
         "x": 410,
-        "y": 480,
+        "y": 360,
         "wires": []
     },
     {

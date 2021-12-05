@@ -8,14 +8,14 @@
 #define RELAY_PIN 27
 
 // Local MQTT
-char *mqttServer = "192.168.0.106";
+char *mqttServer = "broker.hivemq.com";
 int mqttPort = 1883;
 
 // Inisialisasi variabel
 WiFiClient wifiClient;
 PubSubClient mqttClient(wifiClient);
 
-int led_state = 1;
+int led_state = 0;
 
 unsigned long now = 0;
 unsigned long previous_button_time = 0;
@@ -27,6 +27,7 @@ void setup() {
   pinMode(BUTTON_PIN, INPUT_PULLUP);
   pinMode(LED_INDICATOR_PIN, OUTPUT);
   pinMode(RELAY_PIN, OUTPUT);  
+  pinMode(LED_BUILTIN, OUTPUT);  
   
   // Set initial condition untuk pilot lamp dan relay
   digitalWrite(LED_INDICATOR_PIN, led_state);
@@ -34,6 +35,7 @@ void setup() {
 
   // Inisialisasi object WiFiManager ke variabel wifiManager
   WiFiManager wifiManager;
+  wifiManager.resetSettings();
 
   wifiManager.setAPCallback(configModeCallback);
   wifiManager.setTimeout(60);
@@ -41,6 +43,7 @@ void setup() {
     Serial.println("failed to connect and hit timeout");
   } else {
     Serial.println("Successfully connected");
+    digitalWrite(LED_BUILTIN, HIGH);
   }
 
   Serial.print("IP address: ");

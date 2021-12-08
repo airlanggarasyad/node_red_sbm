@@ -3,43 +3,45 @@
 #include <WiFiManager.h>
 #include <AutoConnect.h>
 
-#define BUTTON_PIN 12
-#define LED_INDICATOR_PIN 26
-#define RELAY_PIN 27
+#define BUTTON_PIN 35
+#define RESET_BUTTON_PIN 22
+#define RELAY_PIN 26
 
 // Local MQTT
-char *mqttServer = "broker.hivemq.com";
+char *mqttServer = "broker.emqx.io";
 int mqttPort = 1883;
 
 // Inisialisasi variabel
 WiFiClient wifiClient;
+WiFiManager wifiManager;
 PubSubClient mqttClient(wifiClient);
 
 int led_state = 0;
 
 unsigned long now = 0;
+unsigned long now_reset = 0;
 unsigned long previous_button_time = 0;
+unsigned long previous_reset_button_time = 0;
 
 void setup() {
   Serial.begin(115200);
 
   // Inisialisasi pin yang akan digunakan
   pinMode(BUTTON_PIN, INPUT_PULLUP);
-  pinMode(LED_INDICATOR_PIN, OUTPUT);
+  pinMode(RESET_BUTTON_PIN, INPUT_PULLUP);
   pinMode(RELAY_PIN, OUTPUT);  
   pinMode(LED_BUILTIN, OUTPUT);  
   
   // Set initial condition untuk pilot lamp dan relay
-  digitalWrite(LED_INDICATOR_PIN, led_state);
   digitalWrite(RELAY_PIN, led_state);
 
   // Inisialisasi object WiFiManager ke variabel wifiManager
-  WiFiManager wifiManager;
-  wifiManager.resetSettings();
+//  WiFiManager wifiManager;
+//  wifiManager.resetSettings();
 
   wifiManager.setAPCallback(configModeCallback);
   wifiManager.setTimeout(60);
-  if (!wifiManager.autoConnect("Contactor #1")) {
+  if (!wifiManager.autoConnect("Contactor #2")) {
     Serial.println("failed to connect and hit timeout");
   } else {
     Serial.println("Successfully connected");
@@ -77,6 +79,7 @@ void reconnect() {
         // Subscribe ke topic
         mqttClient.subscribe("smartContactor/desk1/lamp1");
         mqttClient.subscribe("smartContactor/desk1/status");
+        mqttClient.subscribe("smartContactor/desk1/reset");
       }
       
   }
@@ -96,29 +99,30 @@ void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print(receivedMsg);
   Serial.println();
 
-  if (String(topic) == "smartContactor/desk1/lamp1") {
-    if(receivedMsg == "ON") {
-      digitalWrite(RELAY_PIN, LOW);
-      digitalWrite(LED_INDICATOR_PIN, HIGH);
-      
-      mqttClient.publish("smartContactor/desk1/status", "ON");
-    } else {
-      digitalWrite(RELAY_PIN, HIGH);
-      digitalWrite(LED_INDICATOR_PIN, LOW);
-      
-      mqttClient.publish("smartContactor/desk1/status", "OFF");
+  if (String(topic) == "smartContactor/desk1/reset") {
+    if(receivedMsg == "RST") {
+      resetWifi();
     }
   }
 }
 
+void resetWifi() {
+  digitalWrite(LED_BUILTIN, LOW);
+  wifiManager.resetSettings();
+  ESP.restart();
+}
+
 void loop() {
   now = millis();
+  now_reset = millis();
 
   if (now - previous_button_time > 250 && !digitalRead(BUTTON_PIN)) {
+    Serial.println(now - previous_button_time);
     led_state = !led_state;
-    digitalWrite(26, led_state);
+    digitalWrite(RELAY_PIN, led_state);
 
     if (led_state) {
+      Serial.println("publish");
       mqttClient.publish("smartContactor/desk1/lamp1", "ON");
       mqttClient.publish("smartContactor/desk1/status", "ON");
     } else {
@@ -127,6 +131,14 @@ void loop() {
     }
     
     previous_button_time = now;
+  }
+
+  if (now_reset - previous_reset_button_time > 250 && !digitalRead(RESET_BUTTON_PIN)) {
+    Serial.println("reset");
+    
+    resetWifi();
+    
+    previous_reset_button_time = now_reset;
   }
 
   // Jika tidak terkoneksi dengan mqttClient maka coba koneksikan ulang

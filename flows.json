@@ -168,7 +168,7 @@
         "id": "a9fcf269908e18c4",
         "type": "mqtt-broker",
         "name": "Local",
-        "broker": "broker.hivemq.com",
+        "broker": "192.168.100.19",
         "port": "1883",
         "clientid": "",
         "usetls": false,
@@ -368,44 +368,10 @@
         "rap": true,
         "rh": 0,
         "x": 160,
-        "y": 360,
+        "y": 400,
         "wires": [
             [
                 "44d3d3564d26d36c"
-            ]
-        ]
-    },
-    {
-        "id": "b439bcc1cc9d0fac",
-        "type": "ui_switch",
-        "z": "c689d7b3b0303d20",
-        "name": "",
-        "label": "Contactor 1",
-        "tooltip": "",
-        "group": "9fe8e0e27e235c69",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 510,
-        "y": 200,
-        "wires": [
-            [
-                "659d5c0984988132"
             ]
         ]
     },
@@ -490,7 +456,7 @@
         "type": "ui_switch",
         "z": "c689d7b3b0303d20",
         "name": "",
-        "label": "Contactor 1",
+        "label": "Contactor 2",
         "tooltip": "",
         "group": "0feb675b408554d0",
         "order": 2,
@@ -512,7 +478,7 @@
         "animate": false,
         "className": "",
         "x": 510,
-        "y": 420,
+        "y": 460,
         "wires": [
             [
                 "07466b511093de94"
@@ -531,7 +497,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 480,
+        "y": 520,
         "wires": [
             [
                 "128e46de8a3fe990"
@@ -551,7 +517,7 @@
         "rap": true,
         "rh": 0,
         "x": 160,
-        "y": 420,
+        "y": 460,
         "wires": [
             [
                 "44cf135bb601fbe0"
@@ -573,7 +539,7 @@
         "expiry": "",
         "broker": "a9fcf269908e18c4",
         "x": 870,
-        "y": 420,
+        "y": 460,
         "wires": []
     },
     {
@@ -588,7 +554,7 @@
         "finalize": "",
         "libs": [],
         "x": 660,
-        "y": 480,
+        "y": 520,
         "wires": [
             [
                 "13cfd93e006963a3"
@@ -659,7 +625,7 @@
         "showGlow": true,
         "name": "",
         "x": 410,
-        "y": 360,
+        "y": 400,
         "wires": []
     },
     {
@@ -845,5 +811,131 @@
         "x": 610,
         "y": 220,
         "wires": []
+    },
+    {
+        "id": "7bf2bcaa1cb9624b",
+        "type": "ui_button",
+        "z": "c689d7b3b0303d20",
+        "name": "",
+        "group": "0feb675b408554d0",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "RESET WIFI SETTING",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#ff453a",
+        "className": "",
+        "icon": "",
+        "payload": "RST",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 580,
+        "wires": [
+            [
+                "dda549958899ccd7"
+            ]
+        ]
+    },
+    {
+        "id": "dda549958899ccd7",
+        "type": "mqtt out",
+        "z": "c689d7b3b0303d20",
+        "name": "",
+        "topic": "smartContactor/desk2/reset",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a9fcf269908e18c4",
+        "x": 510,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "658abd3fd8d5a12e",
+        "type": "ui_button",
+        "z": "c689d7b3b0303d20",
+        "name": "",
+        "group": "9fe8e0e27e235c69",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "RESET WIFI SETTING",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#ff453a",
+        "className": "",
+        "icon": "",
+        "payload": "RST",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 320,
+        "wires": [
+            [
+                "9d2e5bc63d15356d"
+            ]
+        ]
+    },
+    {
+        "id": "9d2e5bc63d15356d",
+        "type": "mqtt out",
+        "z": "c689d7b3b0303d20",
+        "name": "",
+        "topic": "smartContactor/desk1/reset",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a9fcf269908e18c4",
+        "x": 510,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b439bcc1cc9d0fac",
+        "type": "ui_switch",
+        "z": "c689d7b3b0303d20",
+        "name": "",
+        "label": "Contactor 1",
+        "tooltip": "",
+        "group": "9fe8e0e27e235c69",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 510,
+        "y": 200,
+        "wires": [
+            [
+                "659d5c0984988132"
+            ]
+        ]
     }
 ]

@@ -3,12 +3,12 @@
 #include <WiFiManager.h>
 #include <AutoConnect.h>
 
-#define BUTTON_PIN 35
+#define BUTTON_PIN 32
 #define RESET_BUTTON_PIN 22
 #define RELAY_PIN 26
 
 // Local MQTT
-char *mqttServer = "192.168.100.19";
+char *mqttServer = "192.168.0.106";
 int mqttPort = 1883;
 
 // Inisialisasi variabel
@@ -41,7 +41,7 @@ void setup() {
 
   wifiManager.setAPCallback(configModeCallback);
   wifiManager.setTimeout(60);
-  if (!wifiManager.autoConnect("Contactor #2")) {
+  if (!wifiManager.autoConnect("Contactor #1")) {
     Serial.println("failed to connect and hit timeout");
   } else {
     Serial.println("Successfully connected");
@@ -100,19 +100,16 @@ void callback(char* topic, byte* payload, unsigned int length) {
   Serial.println();
 
   if (String(topic) == "smartContactor/desk2/lamp1") {
-    if(receivedMsg == "ON") {
+    if (receivedMsg == "ON") {
       digitalWrite(RELAY_PIN, LOW);
-      
       mqttClient.publish("smartContactor/desk2/status", "ON");
     } else {
       digitalWrite(RELAY_PIN, HIGH);
-      
       mqttClient.publish("smartContactor/desk2/status", "OFF");
     }
   }
-
   if (String(topic) == "smartContactor/desk2/reset") {
-    if(receivedMsg == "RST") {
+    if (receivedMsg == "RST") {
       resetWifi();
     }
   }
@@ -130,14 +127,14 @@ void loop() {
 
   if (now - previous_button_time > 250 && !digitalRead(BUTTON_PIN)) {
     led_state = !led_state;
-    digitalWrite(26, led_state);
+    digitalWrite(RELAY_PIN, led_state);
 
     if (led_state) {
-      mqttClient.publish("smartContactor/desk2/lamp1", "ON");
-      mqttClient.publish("smartContactor/desk2/status", "ON");
-    } else {
       mqttClient.publish("smartContactor/desk2/lamp1", "OFF");
       mqttClient.publish("smartContactor/desk2/status", "OFF");
+    } else {
+      mqttClient.publish("smartContactor/desk2/lamp1", "ON");
+      mqttClient.publish("smartContactor/desk2/status", "ON");
     }
     
     previous_button_time = now;
@@ -148,7 +145,7 @@ void loop() {
     
     resetWifi();
     
-    previous_reset_button_time = now;
+    previous_reset_button_time = now_reset;
   }
 
   // Jika tidak terkoneksi dengan mqttClient maka coba koneksikan ulang

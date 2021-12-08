@@ -168,7 +168,7 @@
         "id": "a9fcf269908e18c4",
         "type": "mqtt-broker",
         "name": "Local",
-        "broker": "192.168.100.19",
+        "broker": "192.168.0.106",
         "port": "1883",
         "clientid": "",
         "usetls": false,
@@ -368,7 +368,7 @@
         "rap": true,
         "rh": 0,
         "x": 160,
-        "y": 400,
+        "y": 420,
         "wires": [
             [
                 "44d3d3564d26d36c"
@@ -478,7 +478,7 @@
         "animate": false,
         "className": "",
         "x": 510,
-        "y": 460,
+        "y": 480,
         "wires": [
             [
                 "07466b511093de94"
@@ -497,7 +497,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 520,
+        "y": 540,
         "wires": [
             [
                 "128e46de8a3fe990"
@@ -517,7 +517,7 @@
         "rap": true,
         "rh": 0,
         "x": 160,
-        "y": 460,
+        "y": 480,
         "wires": [
             [
                 "44cf135bb601fbe0"
@@ -539,7 +539,7 @@
         "expiry": "",
         "broker": "a9fcf269908e18c4",
         "x": 870,
-        "y": 460,
+        "y": 480,
         "wires": []
     },
     {
@@ -554,7 +554,7 @@
         "finalize": "",
         "libs": [],
         "x": 660,
-        "y": 520,
+        "y": 540,
         "wires": [
             [
                 "13cfd93e006963a3"
@@ -625,7 +625,7 @@
         "showGlow": true,
         "name": "",
         "x": 410,
-        "y": 400,
+        "y": 420,
         "wires": []
     },
     {
@@ -833,7 +833,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 140,
-        "y": 580,
+        "y": 600,
         "wires": [
             [
                 "dda549958899ccd7"
@@ -855,7 +855,7 @@
         "expiry": "",
         "broker": "a9fcf269908e18c4",
         "x": 510,
-        "y": 580,
+        "y": 600,
         "wires": []
     },
     {

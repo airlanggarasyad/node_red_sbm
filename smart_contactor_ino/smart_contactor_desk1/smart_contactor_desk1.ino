@@ -3,12 +3,12 @@
 #include <WiFiManager.h>
 #include <AutoConnect.h>
 
-#define BUTTON_PIN 35
+#define BUTTON_PIN 32
 #define RESET_BUTTON_PIN 22
 #define RELAY_PIN 26
 
 // Local MQTT
-char *mqttServer = "broker.emqx.io";
+char *mqttServer = "192.168.0.106";
 int mqttPort = 1883;
 
 // Inisialisasi variabel
@@ -41,7 +41,7 @@ void setup() {
 
   wifiManager.setAPCallback(configModeCallback);
   wifiManager.setTimeout(60);
-  if (!wifiManager.autoConnect("Contactor #2")) {
+  if (!wifiManager.autoConnect("Contactor #1")) {
     Serial.println("failed to connect and hit timeout");
   } else {
     Serial.println("Successfully connected");
@@ -99,8 +99,17 @@ void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print(receivedMsg);
   Serial.println();
 
+  if (String(topic) == "smartContactor/desk1/lamp1") {
+    if (receivedMsg == "ON") {
+      digitalWrite(RELAY_PIN, LOW);
+      mqttClient.publish("smartContactor/desk1/status", "ON");
+    } else {
+      digitalWrite(RELAY_PIN, HIGH);
+      mqttClient.publish("smartContactor/desk1/status", "OFF");
+    }
+  }
   if (String(topic) == "smartContactor/desk1/reset") {
-    if(receivedMsg == "RST") {
+    if (receivedMsg == "RST") {
       resetWifi();
     }
   }
@@ -117,17 +126,15 @@ void loop() {
   now_reset = millis();
 
   if (now - previous_button_time > 250 && !digitalRead(BUTTON_PIN)) {
-    Serial.println(now - previous_button_time);
     led_state = !led_state;
     digitalWrite(RELAY_PIN, led_state);
 
     if (led_state) {
-      Serial.println("publish");
-      mqttClient.publish("smartContactor/desk1/lamp1", "ON");
-      mqttClient.publish("smartContactor/desk1/status", "ON");
-    } else {
       mqttClient.publish("smartContactor/desk1/lamp1", "OFF");
       mqttClient.publish("smartContactor/desk1/status", "OFF");
+    } else {
+      mqttClient.publish("smartContactor/desk1/lamp1", "ON");
+      mqttClient.publish("smartContactor/desk1/status", "ON");
     }
     
     previous_button_time = now;
